@@ -1,0 +1,4 @@
+# You can ignore the platforms and plugins directories as long as you haven't added any custom code in them.
+platforms
+plugins
+node_modules
