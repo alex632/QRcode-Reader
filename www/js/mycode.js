@@ -3,7 +3,6 @@
 	document.addEventListener('deviceready', onDeviceReady);
 	function onDeviceReady() {
 		document.querySelector('#scanit').addEventListener('click', e => {
-			alert('scan it');
 			funScan();
 		});
 	}
@@ -14,7 +13,7 @@
 	{
 		var scanOption =
 		{
-			"preferFrontCamera": true, // iOS and Android
+			"preferFrontCamera": false, // iOS and Android
 			"showFlipCameraButton": true, // iOS and Android
 			"prompt": "Place a barcode inside the scan area", // supported on Android only
 			"formats": "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
