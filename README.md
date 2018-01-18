@@ -2,14 +2,16 @@
 A simple QRcode-Reader App I made for training purpose.
 
 <h2>Platfroms</h2>
-Installed platforms:
-  ios 4.5.4
-Available platforms:
-  android ~7.0.0
-  browser ~5.0.1
-  osx ~4.0.1
-  windows ~5.0.0
-  www ^3.12.0
+<h3>Installed platforms:</h3>
+  ios 4.5.4<br>
+<h3>Available platforms:</h3>
+<ul>
+  <li>android ~7.0.0
+  <li>browser ~5.0.1
+  <li>osx ~4.0.1
+  <li>windows ~5.0.0
+  <li>www ^3.12.0
+</ul>
 <h2>Plugins</h2>
 cordova plugin add phonegap-plugin-barcodescanner --variable CAMERA_USAGE_DESCRIPTION="To scan barcodes"<br>
 Refer to: https://github.com/phonegap/phonegap-plugin-barcodescanner<br>
