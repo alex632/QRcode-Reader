@@ -25,6 +25,8 @@
 
 	function funScanSuccess(result)
 	{
+		if (result.cancelled)
+			return;
 		alert("We got a barcode\n" +
 				"Result: " + result.text + "\n" +
 				"Format: " + result.format + "\n" +
