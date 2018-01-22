@@ -27,10 +27,16 @@
 	{
 		if (result.cancelled)
 			return;
+		/*
 		alert("We got a barcode\n" +
 				"Result: " + result.text + "\n" +
 				"Format: " + result.format + "\n" +
 				"Cancelled: " + result.cancelled);
+		*/
+		if ( confirm(result.text+"\nGo ahead?") ) {
+			var ref = cordova.InAppBrowser.open(result.text, '_system', 'location=yes');
+			setTimeout(function(){ref.close();}, 19000);
+		}
 	}
 
 	function funScanFail(error)
