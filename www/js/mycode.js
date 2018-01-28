@@ -33,10 +33,39 @@
 				"Format: " + result.format + "\n" +
 				"Cancelled: " + result.cancelled);
 		*/
+		$("#url-got").html(result.text);
+		$( "#dialog-confirm-follow-url" ).dialog({
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true,
+			buttons: {
+				"用瀏覽器打開": function() {
+					var ref = cordova.InAppBrowser.open(result.text, '_system', 'location=yes');
+					$( this ).dialog( "close" );
+				},
+				"用App打開": function() {
+					var ref = cordova.InAppBrowser.open(result.text, '_blank', 'location=yes');
+					setTimeout(function(){ref.close();}, 11000);	//NOTE: no effect on '_system'?
+					$( this ).dialog( "close" );
+				},
+				"取消": function() {
+					$( this ).dialog( "close" );
+				}
+				/*
+				,
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+				*/
+			}
+		});
+		/*
 		if ( confirm(result.text+"\nGo ahead?") ) {
 			var ref = cordova.InAppBrowser.open(result.text, '_system', 'location=yes');
-			setTimeout(function(){ref.close();}, 19000);
+			setTimeout(function(){ref.close();}, 19000);	//NOTE: no effect on '_system'?
 		}
+		*/
 	}
 
 	function funScanFail(error)
