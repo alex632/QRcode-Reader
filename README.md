@@ -26,6 +26,7 @@ cordova plugin add cordova-plugin-inappbrowser --save
 cordova plugin add phonegap-plugin-barcodescanner --save --variable CAMERA_USAGE_DESCRIPTION="To scan barcodes"
 ```
 Refer to: [phonegap/phonegap-plugin-barcodescanner: cross-platform BarcodeScanner for Cordova / PhoneGap](https://github.com/phonegap/phonegap-plugin-barcodescanner)
+
 不是很優，拖了老半天才顯示Scanner，還以為掛了。
 
 ## How to build
