@@ -4,17 +4,16 @@ A simple QRcode-Reader App I made for training purpose.
 ## Platforms
 ### Installed platforms:
 - ios 4.5.4
-Android maybe someday!
+- Android maybe someday!
 
 ### Available platforms:
-<ul>
-  <li>android ~7.0.0
-  <li>browser ~5.0.1
-  <li>osx ~4.0.1
-  <li>windows ~5.0.0
-  <li>www ^3.12.0
-</ul>
-<h2>Plugins</h2>
+
+- android ~7.0.0
+- browser ~5.0.1
+- osx ~4.0.1
+- windows ~5.0.0
+- www ^3.12.0
+
 ### Plugins
 - cordova-plugin-inappbrowser 2.0.1 "InAppBrowser"
 ```
