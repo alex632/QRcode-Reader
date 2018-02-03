@@ -14,7 +14,7 @@ A simple QRcode-Reader App I made for training purpose.
 - windows ~5.0.0
 - www ^3.12.0
 
-### Plugins
+## Plugins
 - cordova-plugin-inappbrowser 2.0.1 "InAppBrowser"
 ```
 cordova plugin add cordova-plugin-inappbrowser --save
@@ -25,3 +25,8 @@ cordova plugin add cordova-plugin-inappbrowser --save
 cordova plugin add phonegap-plugin-barcodescanner --variable CAMERA_USAGE_DESCRIPTION="To scan barcodes"<br>
 Refer to: https://github.com/phonegap/phonegap-plugin-barcodescanner<br>
 </ul>
+## How to build
+```
+cordova build ios --release
+```
+In Xcode, open platforms/ios/xx.xcworkshop
