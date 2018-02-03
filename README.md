@@ -15,6 +15,8 @@ A simple QRcode-Reader App I made for training purpose.
   <li>www ^3.12.0
 </ul>
 <h2>Plugins</h2>
+. cordova-plugin-inappbrowser 2.0.1 "InAppBrowser"
+cordova plugin add cordova-plugin-inappbrowser --save
 <ul>
   <li>cordova-plugin-whitelist 1.3.3 "Whitelist"
   <li>phonegap-plugin-barcodescanner 7.0.2 "BarcodeScanner"<br>
