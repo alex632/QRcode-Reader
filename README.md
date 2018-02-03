@@ -1,7 +1,7 @@
 # QRcode-Reader
 A simple QRcode-Reader App I made for training purpose.
 
-<h2>Platfroms</h2>
+## Platforms
 <h3>Installed platforms:</h3>
 <ul>
   <li>ios 4.5.4
