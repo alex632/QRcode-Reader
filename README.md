@@ -2,11 +2,10 @@
 A simple QRcode-Reader App I made for training purpose.
 
 ## Platforms
-<h3>Installed platforms:</h3>
-<ul>
-  <li>ios 4.5.4
-</ul>
-<h3>Available platforms:</h3>
+###Installed platforms:
+- ios 4.5.4
+
+###Available platforms:
 <ul>
   <li>android ~7.0.0
   <li>browser ~5.0.1
