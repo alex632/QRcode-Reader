@@ -36,3 +36,12 @@ cordova build ios --release --browserify
 --browserify can do any good?
 
 In Xcode, open platforms/ios/xx.xcworkshop
+
+## Open Source don't care about backward compatibility
+Who knows the shit below?
+```
+D:\cordova\QRcode Reader>cordova run browser
+(node:576932) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Cannot find module '../cordova/platform_metadata'
+(node:576932) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+```
+It turns out to be add/remove all plugin. WTF?
