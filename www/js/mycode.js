@@ -5,6 +5,10 @@
 		document.querySelector('#scanit').addEventListener('click', e => {
 			funScan();
 		});
+		document.getElementById('scan2').addEventListener('click', e => {
+			scan2();
+		});
+
 	}
 	/*
 	 * From maduka的技術日記
@@ -72,4 +76,21 @@
 	{
 		alert("Scanning failed: " + error);
 	}
+
+	/*
+	 * Try another plug-in
+	 */
+	function scan2(){
+		QRScanner.scan(function(err, contents){
+			if(err){
+				if(err.name === 'SCAN_CANCELED') {
+					console.log('The scan was canceled before a QR code was found.');
+				} else {
+					alert(err._message);
+				}
+			}
+			alert('Scan returned: ' + contents);
+		});
+	}
+
 })();
