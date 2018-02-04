@@ -33,5 +33,6 @@ Refer to: [phonegap/phonegap-plugin-barcodescanner: cross-platform BarcodeScanne
 ```
 cordova build ios --release --browserify
 ```
-> --browserify can do any good?
+--browserify can do any good?
+
 In Xcode, open platforms/ios/xx.xcworkshop
