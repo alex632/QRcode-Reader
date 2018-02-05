@@ -36,14 +36,16 @@ Refer to: [phonegap/phonegap-plugin-barcodescanner: cross-platform BarcodeScanne
 不是很優，拖了老半天才顯示Scanner，還以為掛了。
 
 - cordova-plugin-qrscanner 2.5.0 "QRScanner"
-- cordova-plugin-swift-support 3.1.1 "SwiftSupport"	> required by "QRScanner"
+- cordova-plugin-swift-support 3.1.1 "SwiftSupport"
+
+> required by "QRScanner"
 ## How to build
 ```
 cordova build ios --release --browserify
 ```
 --browserify can do any good?
 
-In Xcode, open platforms/ios/xx.xcworkshop
+In Xcode, open platforms/ios/QRcode Reader.xcworkspace
 
 ## Open Source don't care about backward compatibility
 Who knows the shit below?
