@@ -91,11 +91,13 @@
 				}
 			}
 			alert('Scan returned: ' + contents);
+			$('body').css('opacity', 1);
 		});
 		
 		// Make the webview transparent so the video preview is visible behind it. 
 		QRScanner.show();
-		// Be sure to make any opaque HTML elements transparent here to avoid covering the video. 
+		// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
+		$('body').css('opacity', 0.3);
 	}
 
 })();
