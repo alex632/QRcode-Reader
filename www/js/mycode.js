@@ -92,14 +92,15 @@
 			}
 			alert('Scan returned: ' + contents);
 			//$('body').css('opacity', 1);
-			document.querySelector('.app').classList.remove('transparent-body');
+			QRScanner.hide()
+			document.querySelector('body').classList.remove('transparent-body');
 		});
 		
 		// Make the webview transparent so the video preview is visible behind it. 
 		QRScanner.show();
 		// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
 		//$('body').css('opacity', 0.3);
-		document.querySelector('.app').classList.add('transparent-body');
+		document.querySelector('body').classList.add('transparent-body');
 	}
 
 })();
