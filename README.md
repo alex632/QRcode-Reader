@@ -1,6 +1,12 @@
 # QRcode-Reader
 A simple QRcode-Reader App I made for training purpose.
 
+## Environment
+- node	8.9.4
+- npm	5.6.0
+- cordova 8.0.0 buggy with cordova-plugin-swift-support
+- cordova 7.1.0
+
 ## Platforms
 ### Installed platforms:
 - ios 4.5.4
@@ -16,7 +22,7 @@ Android maybe someday!
 - www ^3.12.0
 
 ## Plugins
-- cordova-plugin-inappbrowser 2.0.1 "InAppBrowser"
+- cordova-plugin-inappbrowser 2.0.2 "InAppBrowser"
 ```
 cordova plugin add cordova-plugin-inappbrowser --save
 ```
@@ -29,6 +35,8 @@ Refer to: [phonegap/phonegap-plugin-barcodescanner: cross-platform BarcodeScanne
 
 不是很優，拖了老半天才顯示Scanner，還以為掛了。
 
+- cordova-plugin-qrscanner 2.5.0 "QRScanner"
+- cordova-plugin-swift-support 3.1.1 "SwiftSupport"	> required by "QRScanner"
 ## How to build
 ```
 cordova build ios --release --browserify

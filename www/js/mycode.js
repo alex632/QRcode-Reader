@@ -81,6 +81,7 @@
 	 * Try another plug-in
 	 */
 	function scan2(){
+		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called. 
 		QRScanner.scan(function(err, contents){
 			if(err){
 				if(err.name === 'SCAN_CANCELED') {
@@ -91,6 +92,10 @@
 			}
 			alert('Scan returned: ' + contents);
 		});
+		
+		// Make the webview transparent so the video preview is visible behind it. 
+		QRScanner.show();
+		// Be sure to make any opaque HTML elements transparent here to avoid covering the video. 
 	}
 
 })();
