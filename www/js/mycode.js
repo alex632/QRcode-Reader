@@ -46,7 +46,7 @@
 
 	function jump(result) {
 		$("#url-got").html(result);
-		$( "#dialog-confirm-follow-url" ).dialog({
+		$("#dialog-confirm-follow-url").dialog({
 			resizable: false,
 			height: "auto",
 			width: 400,
@@ -64,12 +64,6 @@
 				"取消": function() {
 					$( this ).dialog( "close" );
 				}
-				/*
-				,
-				Cancel: function() {
-					$( this ).dialog( "close" );
-				}
-				*/
 			}
 		});
 	}
@@ -121,6 +115,8 @@
 	function scan2(){
 		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called.
 		QRScanner.scan(function(err, contents){
+			QRScanner.disableLight();
+			$("#scan-light-toggle").attr("state", "0");
 			if (err) {
 				if (err.name === 'SCAN_CANCELED') {
 					alert(err._message);	// Scan was canceled.
@@ -133,6 +129,7 @@
 					alert(err._message);
 				}
 			} else {
+				navigator.notification.beep(2);
 				jump(contents);
 			}
 			hideScanner();
