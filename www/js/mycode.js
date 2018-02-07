@@ -100,7 +100,6 @@
 			$('.app').css('display', 'none');
 			$('.footer').css('display', 'block');
 			$('body').css('background-color', 'transparent');
-			//$('body').addClass('nobody');
 		});
 	}
 
@@ -109,7 +108,6 @@
 			$('.app').css('display', '');
 			$('.footer').css('display', '');
 			$('body').css('background-color', '');
-			//$('body').removeClass('nobody');
 		});
 	}
 	/*
