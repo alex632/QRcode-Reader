@@ -121,14 +121,18 @@
 	function scan2(){
 		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called.
 		QRScanner.scan(function(err, contents){
-			if(err){
-				if(err.name === 'SCAN_CANCELED') {
-					//alert(err._message);	// Scan was canceled.
+			if (err) {
+				if (err.name === 'SCAN_CANCELED') {
+					alert(err._message);	// Scan was canceled.
+				} else
+				if (err.name === 'CAMERA_ACCESS_DENIED') {	// err._message = The user denied camera access.
+					if (confirm("Would you like to enable QR code scanning? You can allow camera access in your settings.")) {
+						QRScanner.openSettings();
+					}
 				} else {
 					alert(err._message);
 				}
 			} else {
-				//alert('Scan returned: ' + contents);
 				jump(contents);
 			}
 			hideScanner();
