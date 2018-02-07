@@ -9,7 +9,24 @@
 			scan2();
 		});
 
+		$("#scan-cancel").click(function(){
+			QRScanner.cancelScan();
+			//hideScanner();
+		});
+
+		$("#scan-light-toggle").click(function(){
+			if ( $(this).attr("state")==="1" ) {
+				QRScanner.disableLight();
+				$(this).attr("state", "0");
+				$(this).html("開燈");
+			} else {
+				QRScanner.enableLight();
+				$(this).attr("state", "1");
+				$(this).html("關燈");
+			}
+		});
 	}
+
 	/*
 	 * From maduka的技術日記
 	 */
@@ -77,30 +94,41 @@
 		alert("Scanning failed: " + error);
 	}
 
+	function showScanner() {
+		QRScanner.show();
+		// Make the webview transparent so the video preview is visible behind it.
+		// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
+		$('body').css('background-color', 'transparent');
+		$('.app').css('display', 'none');
+		$('.footer').css('display', 'block');
+	}
+
+	function hideScanner() {
+		QRScanner.hide();
+		$('body').css('background-color', '');
+		$('.app').css('display', '');
+		$('.footer').css('display', '');
+	}
+
 	/*
 	 * Try another plug-in
 	 */
 	function scan2(){
-		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called. 
+		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called.
 		QRScanner.scan(function(err, contents){
 			if(err){
 				if(err.name === 'SCAN_CANCELED') {
-					console.log('The scan was canceled before a QR code was found.');
+					alert(err._message);//DEBUG
+					//console.log('The scan was canceled before a QR code was found.');
 				} else {
 					alert(err._message);
 				}
+			} else {
+				alert('Scan returned: ' + contents);
 			}
-			alert('Scan returned: ' + contents);
-			//$('body').css('opacity', 1);
-			QRScanner.hide()
-			document.querySelector('body').classList.remove('transparent-body');
+			hideScanner();
 		});
-		
-		// Make the webview transparent so the video preview is visible behind it. 
-		QRScanner.show();
-		// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
-		//$('body').css('opacity', 0.3);
-		document.querySelector('body').classList.add('transparent-body');
+		showScanner();
 	}
 
 })();

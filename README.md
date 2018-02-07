@@ -54,3 +54,7 @@ Who knows the shit below? A bug of cordova 8.0.0.
 > (node:576932) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
 
 It turns out to be add/remove all plugin. WTF?
+
+
+
+Don't try opacity on <body>

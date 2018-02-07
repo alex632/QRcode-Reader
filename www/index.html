@@ -39,13 +39,19 @@
 		<script src="js/jquery-1.12.4.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<style>
-			.transparent-body {
-			//	background-color: rgba(255,0,0,0.8);
-				background: none transparent !important;
-				opacity: 0.1 !important;
+			.footer {
+				position: fixed;
+				width: 100%;
+				bottom: 20px;
+				text-align: center;
+				display: none;
+			}
+			.scan-button {
+				opacity: 0.5;
+				margin-left: 40px;
 			}
 		</style>
-		
+
         <title>Hello World</title>
     </head>
     <body>
@@ -58,6 +64,11 @@
 				<button id="scan2" style="margin-top:10px;font-size:large">QRcode Scan 2</button>
             </div>
         </div>
+		<div class="footer">
+			<button class="scan-button" id="scan-cancel">Cancel</button>
+			<button class="scan-button" id="scan-light-toggle" state="0">Light</button>
+			<button class="scan-button" id="scan-camera-toggle" state="0">Choose Camera</button>
+		</div>
 		<div id="dialog-confirm-follow-url" title="跳不跳?" style="display:none">
 			<p><span class="ui-icon ui-icon-alert" style="float:left; margin-right:12px; margin-bottom:12px"></span>掃到這個鏈接，要打開嗎？ <span id="url-got">http://www.wistron.com/</span></p>
 		</div>
