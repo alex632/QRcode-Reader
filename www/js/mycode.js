@@ -44,17 +44,8 @@
 		cordova.plugins.barcodeScanner.scan(funScanSuccess, funScanFail, scanOption);
 	}
 
-	function funScanSuccess(result)
-	{
-		if (result.cancelled)
-			return;
-		/*
-		alert("We got a barcode\n" +
-				"Result: " + result.text + "\n" +
-				"Format: " + result.format + "\n" +
-				"Cancelled: " + result.cancelled);
-		*/
-		$("#url-got").html(result.text);
+	function jump(result) {
+		$("#url-got").html(result);
 		$( "#dialog-confirm-follow-url" ).dialog({
 			resizable: false,
 			height: "auto",
@@ -62,11 +53,11 @@
 			modal: true,
 			buttons: {
 				"用瀏覽器打開": function() {
-					var ref = cordova.InAppBrowser.open(result.text, '_system', 'location=yes');
+					var ref = cordova.InAppBrowser.open(result, '_system', 'location=yes');
 					$( this ).dialog( "close" );
 				},
 				"用App打開": function() {
-					var ref = cordova.InAppBrowser.open(result.text, '_blank', 'location=yes');
+					var ref = cordova.InAppBrowser.open(result, '_blank', 'location=yes');
 					setTimeout(function(){ref.close();}, 11000);	//NOTE: no effect on '_system'?
 					$( this ).dialog( "close" );
 				},
@@ -81,6 +72,20 @@
 				*/
 			}
 		});
+	}
+	
+	function funScanSuccess(result)
+	{
+		if (result.cancelled)
+			return;
+		/*
+		alert("We got a barcode\n" +
+				"Result: " + result.text + "\n" +
+				"Format: " + result.format + "\n" +
+				"Cancelled: " + result.cancelled);
+		*/
+		jump(result.text);
+
 		/*
 		if ( confirm(result.text+"\nGo ahead?") ) {
 			var ref = cordova.InAppBrowser.open(result.text, '_system', 'location=yes');
@@ -118,13 +123,13 @@
 		QRScanner.scan(function(err, contents){
 			if(err){
 				if(err.name === 'SCAN_CANCELED') {
-					alert(err._message);//DEBUG
-					//console.log('The scan was canceled before a QR code was found.');
+					//alert(err._message);	// Scan was canceled.
 				} else {
 					alert(err._message);
 				}
 			} else {
-				alert('Scan returned: ' + contents);
+				//alert('Scan returned: ' + contents);
+				jump(contents);
 			}
 			hideScanner();
 		});
