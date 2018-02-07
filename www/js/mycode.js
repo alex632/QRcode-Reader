@@ -94,21 +94,25 @@
 	}
 
 	function showScanner() {
-		QRScanner.show();
-		// Make the webview transparent so the video preview is visible behind it.
-		// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
-		$('body').css('background-color', 'transparent');
-		$('.app').css('display', 'none');
-		$('.footer').css('display', 'block');
+ 		QRScanner.show(function(status){
+			// Make the webview transparent so the video preview is visible behind it.
+			// Be sure to make any opaque HTML elements transparent here to avoid covering the video.
+			$('.app').css('display', 'none');
+			$('.footer').css('display', 'block');
+			$('body').css('background-color', 'transparent');
+			//$('body').addClass('nobody');
+		});
 	}
 
 	function hideScanner() {
-		QRScanner.hide();
-		$('body').css('background-color', '');
-		$('.app').css('display', '');
-		$('.footer').css('display', '');
+		QRScanner.hide(function(status){
+			$('.app').css('display', '');
+			$('.footer').css('display', '');
+			$('body').css('background-color', '');
+			//$('body').removeClass('nobody');
+		});
 	}
-	
+	/*
 	function turnOffLight() {
 		QRScanner.getStatus(function(status){
 			if (status.lightEnabled) {
@@ -117,6 +121,7 @@
 			}
 		});
 	}
+     */
 
 	/*
 	 * Try another plug-in
@@ -124,7 +129,9 @@
 	function scan2(){
 		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called.
 		QRScanner.scan(function(err, contents){
-			turnOffLight();
+            QRScanner.disableLight();
+            $("#scan-light-toggle").attr("state", "0");
+			//turnOffLight();
 			if (err) {
 				if (err.name === 'SCAN_CANCELED') {
 					//alert(err._message);	// Scan was canceled.
@@ -134,10 +141,13 @@
 						QRScanner.openSettings();
 					}
 				} else {
+                    // Implicit call to prepare() failed won't generate error here. Bug!
 					alert(err._message);
 				}
 			} else {
-				navigator.notification.beep(2);
+				//navigator.notification.beep(1);	// 3 tones too long
+				navigator.vibrate(500);	// 500 ms, but ignored in iOS
+                //navigator.notification.alert("掃到了", function(){}, "Yeah!", "Done");
 				jump(contents);
 			}
 			hideScanner();
