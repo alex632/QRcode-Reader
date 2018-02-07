@@ -108,6 +108,15 @@
 		$('.app').css('display', '');
 		$('.footer').css('display', '');
 	}
+	
+	function turnOffLight() {
+		QRScanner.getStatus(function(status){
+			if (status.lightEnabled) {
+				QRScanner.disableLight();
+				$("#scan-light-toggle").attr("state", "0");
+			}
+		});
+	}
 
 	/*
 	 * Try another plug-in
@@ -115,11 +124,10 @@
 	function scan2(){
 		// Start a scan. Scanning will continue until something is detected or `QRScanner.cancelScan()` is called.
 		QRScanner.scan(function(err, contents){
-			QRScanner.disableLight();
-			$("#scan-light-toggle").attr("state", "0");
+			turnOffLight();
 			if (err) {
 				if (err.name === 'SCAN_CANCELED') {
-					alert(err._message);	// Scan was canceled.
+					//alert(err._message);	// Scan was canceled.
 				} else
 				if (err.name === 'CAMERA_ACCESS_DENIED') {	// err._message = The user denied camera access.
 					if (confirm("Would you like to enable QR code scanning? You can allow camera access in your settings.")) {
